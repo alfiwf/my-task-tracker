@@ -1,440 +1,112 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мой трекер задач</title>
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="РОКС БАР | АДЛЕР — вечеринки, музыка и атмосфера в РК Мандарин. Адлер, Бестужева 1/1.">
+  <title>РОКС БАР | АДЛЕР</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 30px 16px;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: #f3f5fb;
-      color: #20243a;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 28px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 12px 40px rgba(30, 40, 80, 0.08);
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: 30px;
-    }
-
-    .subtitle {
-      margin: 0 0 24px;
-      color: #777e91;
-      line-height: 1.5;
-    }
-
-    form {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    input[type="text"] {
-      flex: 1;
-      min-width: 0;
-      padding: 13px 14px;
-      border: 1px solid #dfe3ed;
-      border-radius: 10px;
-      font-size: 16px;
-      outline: none;
-    }
-
-    input[type="text"]:focus {
-      border-color: #6258e8;
-      box-shadow: 0 0 0 3px rgba(98, 88, 232, 0.12);
-    }
-
-    button {
-      border: none;
-      border-radius: 10px;
-      padding: 12px 16px;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .add-button {
-      background: #6258e8;
-      color: white;
-    }
-
-    .add-button:hover {
-      background: #5046d2;
-    }
-
-    .filters {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 18px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #edf0f5;
-    }
-
-    .filter-button {
-      flex: 1;
-      padding: 10px 8px;
-      background: #f3f4f8;
-      color: #62697c;
-    }
-
-    .filter-button.active {
-      background: #6258e8;
-      color: white;
-    }
-
-    #taskList {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .task {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 0;
-      border-bottom: 1px solid #edf0f5;
-    }
-
-    .task-checkbox {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      accent-color: #6258e8;
-      cursor: pointer;
-    }
-
-    .task-text {
-      flex: 1;
-      min-width: 0;
-      overflow-wrap: anywhere;
-      line-height: 1.5;
-    }
-
-    .task.completed .task-text {
-      color: #969bad;
-      text-decoration: line-through;
-    }
-
-    .delete-button {
-      flex-shrink: 0;
-      padding: 8px 10px;
-      background: #fff0f0;
-      color: #d44747;
-    }
-
-    .delete-button:hover {
-      background: #ffdddd;
-    }
-
-    .empty-message {
-      padding: 24px 8px;
-      color: #8b91a3;
-      text-align: center;
-      line-height: 1.5;
-    }
-
-    .footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-      color: #777e91;
-      font-size: 14px;
-    }
-
-    #counter {
-      line-height: 1.5;
-    }
-
-    .clear-button {
-      padding: 8px 10px;
-      background: transparent;
-      color: #6258e8;
-    }
-
-    .clear-button:hover {
-      background: #f3f1ff;
-    }
-
-    button:focus-visible,
-    input:focus-visible {
-      outline: 2px solid #6258e8;
-      outline-offset: 3px;
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 16px 10px;
-      }
-
-      .container {
-        padding: 20px 16px;
-        border-radius: 16px;
-      }
-
-      h1 {
-        font-size: 25px;
-      }
-
-      form {
-        flex-direction: column;
-      }
-
-      .add-button {
-        width: 100%;
-      }
-
-      .filters {
-        gap: 5px;
-      }
-
-      .filter-button {
-        padding: 10px 4px;
-        font-size: 12px;
-      }
-
-      .footer {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
+    :root{--bg:#080808;--panel:#121212;--text:#f8f8f8;--muted:#b9b9b9;--pink:#ff168d;--green:#8dff00;--line:#292929}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}a{color:inherit}img{max-width:100%;display:block}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(8,8,8,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{font-weight:1000;letter-spacing:1px;font-size:20px;text-decoration:none;line-height:1}.logo span{display:block;text-align:center;font-size:11px;margin-top:5px;letter-spacing:4px}.navlinks{display:flex;align-items:center;gap:22px}.navlinks a{text-decoration:none;font-size:13px;font-weight:800;text-transform:uppercase}.navlinks a:hover{color:var(--pink)}.navlinks .nav-cta{background:var(--pink);padding:12px 15px;border-radius:3px;color:#fff}
+    .hero{padding:30px 0 70px}.hero-image{width:100%;max-height:760px;object-fit:cover;object-position:center;border:1px solid #222;border-radius:4px}.hero-copy{text-align:center;padding:30px 0 0}.eyebrow{color:var(--green);font-size:12px;letter-spacing:4px;font-weight:900;text-transform:uppercase}.hero h1{font-size:clamp(42px,9vw,96px);line-height:.9;letter-spacing:-3px;margin:14px 0 18px;font-weight:1000}.hero h1 span{color:var(--pink)}.hero p{color:var(--muted);font-size:17px;line-height:1.6;max-width:650px;margin:0 auto 25px}.buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;padding:15px 21px;text-decoration:none;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;border:1px solid var(--pink);border-radius:3px;background:var(--pink);color:white}.btn.secondary{background:transparent;border-color:#555}.btn:hover{transform:translateY(-2px)}
+    section{padding:70px 0;border-top:1px solid var(--line)}.section-kicker{color:var(--pink);font-size:12px;letter-spacing:4px;text-transform:uppercase;font-weight:900}.section-title{font-size:clamp(32px,5vw,56px);line-height:1;margin:12px 0 18px;letter-spacing:-1.5px}.section-intro{max-width:700px;color:var(--muted);line-height:1.7}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}.about-image{width:100%;height:100%;max-height:520px;object-fit:cover;border-radius:4px}.info-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:25px}.info-item{background:var(--panel);border:1px solid var(--line);padding:18px}.info-item strong{display:block;color:var(--green);font-size:14px;margin-bottom:8px}.info-item span{color:var(--muted);font-size:13px;line-height:1.5}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:28px}.photo-card{background:var(--panel);border:1px solid var(--line);overflow:hidden;border-radius:4px}.photo-card img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .35s}.photo-card:hover img{transform:scale(1.025)}.card-copy{padding:20px}.card-copy h3{font-size:22px;margin:0 0 9px;text-transform:uppercase}.card-copy p{color:var(--muted);line-height:1.6;margin:0 0 15px;font-size:14px}.text-link{color:var(--green);font-weight:900;text-decoration:none;font-size:13px;text-transform:uppercase}.text-link:hover{color:var(--pink)}.poster-card img{aspect-ratio:3/4;object-fit:cover}.pink{color:var(--pink)}
+    .feature{background:linear-gradient(120deg,#171017,#080808 60%);border:1px solid #32202b;padding:clamp(25px,5vw,55px);margin-top:25px}.feature h3{font-size:clamp(30px,5vw,52px);margin:0 0 12px;text-transform:uppercase}.feature p{color:var(--muted);line-height:1.7;max-width:650px}.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}.contact-row{padding:18px 0;border-bottom:1px solid var(--line)}.contact-row small{display:block;color:var(--pink);font-weight:900;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}.contact-row a,.contact-row span{font-size:18px;text-decoration:none;overflow-wrap:anywhere}.contact-row a:hover{color:var(--green)}.contact-panel{background:var(--panel);padding:25px;border:1px solid var(--line)}.contact-panel h3{font-size:24px;margin-top:0}.contact-panel p{color:var(--muted);line-height:1.7}.contact-panel .btn{width:100%;margin-top:10px}
+    footer{padding:28px 0;border-top:1px solid var(--line);color:#888;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.age{color:var(--pink);font-weight:900}
+    @media(max-width:760px){.nav{padding:14px 0;align-items:flex-start;flex-direction:column;gap:13px}.navlinks{width:100%;gap:15px;overflow-x:auto;padding-bottom:4px}.navlinks a{white-space:nowrap;font-size:11px}.navlinks .nav-cta{padding:10px}.hero{padding-top:16px}.hero-image{max-height:640px}.hero h1{letter-spacing:-1.5px}.about-grid,.contacts-grid{grid-template-columns:1fr}.about-image{max-height:420px}.cards{gap:12px}.card-copy{padding:13px}.card-copy h3{font-size:17px}.card-copy p{font-size:13px}.info-list{gap:8px}.info-item{padding:13px}section{padding:52px 0}}
+    @media(max-width:420px){.wrap{width:calc(100% - 24px)}.cards{grid-template-columns:1fr}.photo-card img{aspect-ratio:4/5}.navlinks{gap:12px}.navlinks a{font-size:10px}.hero p{font-size:15px}}
   </style>
 </head>
 <body>
-  <main class="container">
-    <h1>Мой трекер задач</h1>
-    <p class="subtitle">Маленькие шаги ведут к большим результатам.</p>
-
-    <form id="taskForm">
-      <input
-        id="taskInput"
-        type="text"
-        placeholder="Например, изучить JavaScript"
-        maxlength="500"
-        autocomplete="off"
-        aria-label="Новая задача"
-      >
-      <button class="add-button" type="submit">+ Добавить</button>
-    </form>
-
-    <div class="filters" aria-label="Фильтры задач">
-      <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">Все</button>
-      <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Активные</button>
-      <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Выполненные</button>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#home" aria-label="РОКС БАР — главная">РОКС<span>БАР · АДЛЕР</span></a>
+      <nav class="navlinks" aria-label="Главное меню">
+        <a href="#about">О баре</a><a href="#menu">Барная карта</a><a href="#events">Афиша</a><a href="#contacts">Контакты</a>
+        <a class="nav-cta" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Связаться</a>
+      </nav>
     </div>
+  </header>
 
-    <ul id="taskList"></ul>
-    <p id="emptyMessage" class="empty-message">Пока нет задач. Добавь свою первую!</p>
+  <main>
+    <section class="hero" id="home" style="border-top:0">
+      <div class="wrap">
+        <img class="hero-image" src="rocks-poster.jpg" alt="Афиша РОКС БАР Адлер" fetchpriority="high">
+        <div class="hero-copy">
+          <div class="eyebrow">Сочи · Адлер · РК Мандарин</div>
+          <h1>РОКС БАР <span>| АДЛЕР</span></h1>
+          <p>Музыка, люди, коктейли и ночи, которые хочется запомнить. Встречаемся в «Мандарине».</p>
+          <div class="buttons"><a class="btn" href="tel:+79289057676">Позвонить · забронировать</a><a class="btn secondary" href="#events">Смотреть афишу</a></div>
+        </div>
+      </div>
+    </section>
 
-    <div class="footer">
-      <span id="counter">Осталось задач: 0</span>
-      <button id="clearCompleted" class="clear-button" type="button">Удалить выполненные</button>
-    </div>
+    <section id="about">
+      <div class="wrap about-grid">
+        <div>
+          <div class="section-kicker">Знакомься, это РОКС</div>
+          <h2 class="section-title">ТВОЯ НОЧЬ.<br><span class="pink">ТВОИ ЛЮДИ.</span></h2>
+          <p class="section-intro">РОКС БАР — место для встреч, музыки и ночной атмосферы в самом Адлере. Заглядывай с друзьями, следи за афишей и уточняй детали вечера у команды бара.</p>
+          <div class="info-list">
+            <div class="info-item"><strong>ЛОКАЦИЯ</strong><span>РК «Мандарин», 2 этаж</span></div>
+            <div class="info-item"><strong>КОГДА</strong><span>Ежедневно с 21:00</span></div>
+            <div class="info-item"><strong>ВОЗРАСТ</strong><span>18+</span></div>
+            <div class="info-item"><strong>НА СВЯЗИ</strong><span>Телефон и Telegram</span></div>
+          </div>
+        </div>
+        <img class="about-image" src="rocks-team.jpg" alt="Команда РОКС БАР">
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="wrap">
+        <div class="section-kicker">Барная карта</div>
+        <h2 class="section-title">ЧТО-ТО <span class="pink">ВКУСНОЕ</span></h2>
+        <p class="section-intro">Знакомься с атмосферой бара. Актуальный состав барной карты и цены лучше уточнить у команды — здесь не публикуем неподтверждённые позиции.</p>
+        <div class="cards">
+          <article class="photo-card">
+            <img src="rocks-cocktail.jpg" alt="Коктейль в РОКС БАР" loading="lazy">
+            <div class="card-copy"><h3>Коктейльное настроение</h3><p>Посмотри актуальные предложения и уточни наличие у команды бара.</p><a class="text-link" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Спросить в Telegram ↗</a></div>
+          </article>
+          <article class="photo-card poster-card">
+            <img src="rocks-poster.jpg" alt="Афиша и настроение РОКС БАР" loading="lazy">
+            <div class="card-copy"><h3>Вечер начинается здесь</h3><p>Следи за обновлениями и специальными предложениями в официальном канале.</p><a class="text-link" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Открыть канал ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="events">
+      <div class="wrap">
+        <div class="section-kicker">Не пропусти</div>
+        <h2 class="section-title">АФИША <span class="pink">И ДВИЖ</span></h2>
+        <div class="cards">
+          <article class="photo-card poster-card"><img src="rocks-poster.jpg" alt="Афиша РОКС БАР" loading="lazy"><div class="card-copy"><h3>Следующая ночь</h3><p>Актуальные даты, артисты и программа публикуются в Telegram. Проверяй канал перед визитом.</p><a class="text-link" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Актуальная афиша ↗</a></div></article>
+          <article class="photo-card"><img src="best-in-the-world.jpg" alt="Самая лучшая в мире" loading="lazy"><div class="card-copy"><h3>САМАЯ ЛУЧШАЯ В МИРЕ <span class="pink">♥</span></h3><p>Особенный кадр в галерее РОКС БАР.</p><a class="text-link" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Рокс бар в Telegram ↗</a></div></article>
+        </div>
+        <div class="feature"><div class="section-kicker">Будь в курсе</div><h3>Увидимся <span class="pink">ночью</span></h3><p>Подпишись на официальный Telegram-канал, чтобы следить за афишей, обновлениями и новостями бара.</p><a class="btn" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Перейти в Telegram</a></div>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <div class="wrap contacts-grid">
+        <div>
+          <div class="section-kicker">Найди нас</div>
+          <h2 class="section-title">ДО ВСТРЕЧИ <span class="pink">В РОКСЕ</span></h2>
+          <p class="section-intro">Сохрани контакты и напиши или позвони, чтобы уточнить бронь и детали посещения.</p>
+          <div class="contact-row"><small>Адрес</small><span>Сочи, Адлер, ул. Бестужева, 1/1, РК «Мандарин», 2 этаж</span></div>
+          <div class="contact-row"><small>Телефон / WhatsApp</small><a href="tel:+79289057676">+7 928 905-76-76</a></div>
+          <div class="contact-row"><small>Время работы</small><span>Ежедневно с 21:00</span></div>
+          <div class="contact-row"><small>Официальный Telegram</small><a href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">@ontherocksbar_adler ↗</a></div>
+        </div>
+        <aside class="contact-panel"><h3>ПЛАНИРУЕШЬ ЗАЙТИ?</h3><p>Свяжись с командой, чтобы уточнить наличие мест, актуальную афишу и детали бронирования.</p><a class="btn" href="tel:+79289057676">Позвонить в бар</a><a class="btn secondary" href="https://wa.me/79289057676" target="_blank" rel="noopener">Написать в WhatsApp</a><a class="btn secondary" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Открыть Telegram</a><p class="age">18+ · Пожалуйста, отдыхай ответственно.</p></aside>
+      </div>
+    </section>
   </main>
 
-  <script>
-    // Находим элементы страницы.
-    const taskForm = document.querySelector("#taskForm");
-    const taskInput = document.querySelector("#taskInput");
-    const taskList = document.querySelector("#taskList");
-    const counter = document.querySelector("#counter");
-    const emptyMessage = document.querySelector("#emptyMessage");
-    const filterButtons = document.querySelectorAll("[data-filter]");
-    const clearCompletedButton = document.querySelector("#clearCompleted");
-
-    // Загружаем задачи из памяти браузера.
-    function loadTasks() {
-      try {
-        const saved = localStorage.getItem("my-tasks");
-        const parsed = saved ? JSON.parse(saved) : [];
-
-        if (!Array.isArray(parsed)) return [];
-
-        return parsed.filter(task =>
-          task &&
-          typeof task.id === "string" &&
-          typeof task.text === "string" &&
-          typeof task.completed === "boolean"
-        );
-      } catch (error) {
-        console.error("Ошибка загрузки задач:", error);
-        return [];
-      }
-    }
-
-    let tasks = loadTasks();
-    let currentFilter = "all";
-
-    // Сохраняем задачи.
-    function saveTasks() {
-      try {
-        localStorage.setItem("my-tasks", JSON.stringify(tasks));
-      } catch (error) {
-        console.error("Ошибка сохранения задач:", error);
-        alert("Не удалось сохранить задачи. Проверь настройки браузера.");
-      }
-    }
-
-    // Создаём уникальный идентификатор задачи.
-    function createId() {
-      if (window.crypto && window.crypto.randomUUID) {
-        return window.crypto.randomUUID();
-      }
-
-      return Date.now().toString(36) + Math.random().toString(36).slice(2);
-    }
-
-    // Добавляем новую задачу.
-    function addTask(text) {
-      const cleanText = text.trim();
-
-      if (!cleanText) return;
-
-      tasks.push({
-        id: createId(),
-        text: cleanText,
-        completed: false
-      });
-
-      saveTasks();
-      renderTasks();
-    }
-
-    // Меняем статус задачи.
-    function toggleTask(id) {
-      tasks = tasks.map(task =>
-        task.id === id
-          ? { ...task, completed: !task.completed }
-          : task
-      );
-
-      saveTasks();
-      renderTasks();
-    }
-
-    // Удаляем задачу.
-    function deleteTask(id) {
-      tasks = tasks.filter(task => task.id !== id);
-
-      saveTasks();
-      renderTasks();
-    }
-
-    // Создаём безопасный элемент задачи.
-    function createTaskElement(task) {
-      const li = document.createElement("li");
-      li.className = "task";
-      li.classList.toggle("completed", task.completed);
-
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.className = "task-checkbox";
-      checkbox.checked = task.completed;
-      checkbox.setAttribute("aria-label", "Отметить задачу выполненной");
-      checkbox.addEventListener("change", () => toggleTask(task.id));
-
-      const text = document.createElement("span");
-      text.className = "task-text";
-      text.textContent = task.text;
-
-      const deleteButton = document.createElement("button");
-      deleteButton.type = "button";
-      deleteButton.className = "delete-button";
-      deleteButton.textContent = "Удалить";
-      deleteButton.setAttribute("aria-label", "Удалить задачу: " + task.text);
-      deleteButton.addEventListener("click", () => deleteTask(task.id));
-
-      li.append(checkbox, text, deleteButton);
-
-      return li;
-    }
-
-    // Показываем задачи с учётом выбранного фильтра.
-    function renderTasks() {
-      taskList.replaceChildren();
-
-      const visibleTasks = tasks.filter(task => {
-        if (currentFilter === "active") return !task.completed;
-        if (currentFilter === "completed") return task.completed;
-        return true;
-      });
-
-      visibleTasks.forEach(task => {
-        taskList.appendChild(createTaskElement(task));
-      });
-
-      const remaining = tasks.filter(task => !task.completed).length;
-      const word = remaining === 1 ? "задача" :
-        remaining >= 2 && remaining <= 4 ? "задачи" : "задач";
-
-      counter.textContent = "Осталось задач: " + remaining + " " + word;
-
-      emptyMessage.hidden = visibleTasks.length > 0;
-
-      if (visibleTasks.length === 0) {
-        if (tasks.length === 0) {
-          emptyMessage.textContent = "Пока нет задач. Добавь свою первую!";
-        } else if (currentFilter === "active") {
-          emptyMessage.textContent = "Нет активных задач.";
-        } else if (currentFilter === "completed") {
-          emptyMessage.textContent = "Пока нет выполненных задач.";
-        } else {
-          emptyMessage.textContent = "Задач пока нет.";
-        }
-      }
-
-      filterButtons.forEach(button => {
-        const selected = button.dataset.filter === currentFilter;
-        button.classList.toggle("active", selected);
-        button.setAttribute("aria-pressed", String(selected));
-      });
-    }
-
-    // Обрабатываем отправку формы, в том числе клавишей Enter.
-    taskForm.addEventListener("submit", event => {
-      event.preventDefault();
-      addTask(taskInput.value);
-      taskInput.value = "";
-      taskInput.focus();
-    });
-
-    // Переключаем фильтр.
-    filterButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        currentFilter = button.dataset.filter;
-        renderTasks();
-      });
-    });
-
-    // Удаляем все выполненные задачи.
-    clearCompletedButton.addEventListener("click", () => {
-      tasks = tasks.filter(task => !task.completed);
-      saveTasks();
-      renderTasks();
-    });
-
-    // Показываем сохранённые задачи при открытии страницы.
-    renderTasks();
-  </script>
+  <footer><div class="wrap footer-inner"><span>© <span id="year">2026</span> РОКС БАР | АДЛЕР</span><span>Сочи · Адлер · РК «Мандарин»</span><span class="age">18+</span></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
