@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="РОКС БАР | АДЛЕР — вечеринки, музыка и атмосфера в РК Мандарин. Адлер, Бестужева 1/1.">
+  <title>РОКС БАР | АДЛЕР</title>
+  <style>
+    :root{--bg:#080808;--panel:#121212;--text:#f8f8f8;--muted:#b9b9b9;--pink:#ff168d;--green:#8dff00;--line:#292929}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}a{color:inherit}img{max-width:100%;display:block}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(8,8,8,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.logo{font-weight:1000;letter-spacing:1px;font-size:20px;text-decoration:none;line-height:1}.logo span{display:block;text-align:center;font-size:11px;margin-top:5px;letter-spacing:4px}.navlinks{display:flex;align-items:center;gap:22px}.navlinks a{text-decoration:none;font-size:13px;font-weight:800;text-transform:uppercase}.navlinks a:hover{color:var(--pink)}.navlinks .nav-cta{background:var(--pink);padding:12px 15px;border-radius:3px;color:#fff}
+    .hero{padding:30px 0 70px}.hero-image{width:100%;max-height:760px;object-fit:cover;object-position:center;border:1px solid #222;border-radius:4px}.hero-copy{text-align:center;padding:30px 0 0}.eyebrow{color:var(--green);font-size:12px;letter-spacing:4px;font-weight:900;text-transform:uppercase}.hero h1{font-size:clamp(42px,9vw,96px);line-height:.9;letter-spacing:-3px;margin:14px 0 18px;font-weight:1000}.hero h1 span{color:var(--pink)}.hero p{color:var(--muted);font-size:17px;line-height:1.6;max-width:650px;margin:0 auto 25px}.buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;padding:15px 21px;text-decoration:none;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;border:1px solid var(--pink);border-radius:3px;background:var(--pink);color:white}.btn.secondary{background:transparent;border-color:#555}.btn:hover{transform:translateY(-2px)}
+    section{padding:70px 0;border-top:1px solid var(--line)}.section-kicker{color:var(--pink);font-size:12px;letter-spacing:4px;text-transform:uppercase;font-weight:900}.section-title{font-size:clamp(32px,5vw,56px);line-height:1;margin:12px 0 18px;letter-spacing:-1.5px}.section-intro{max-width:700px;color:var(--muted);line-height:1.7}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}.about-image{width:100%;height:100%;max-height:520px;object-fit:cover;border-radius:4px}.info-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:25px}.info-item{background:var(--panel);border:1px solid var(--line);padding:18px}.info-item strong{display:block;color:var(--green);font-size:14px;margin-bottom:8px}.info-item span{color:var(--muted);font-size:13px;line-height:1.5}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:28px}.photo-card{background:var(--panel);border:1px solid var(--line);overflow:hidden;border-radius:4px}.photo-card img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .35s}.photo-card:hover img{transform:scale(1.025)}.card-copy{padding:20px}.card-copy h3{font-size:22px;margin:0 0 9px;text-transform:uppercase}.card-copy p{color:var(--muted);line-height:1.6;margin:0 0 15px;font-size:14px}.text-link{color:var(--green);font-weight:900;text-decoration:none;font-size:13px;text-transform:uppercase}.text-link:hover{color:var(--pink)}.poster-card img{aspect-ratio:3/4;object-fit:cover}.pink{color:var(--pink)}
+    .feature{background:linear-gradient(120deg,#171017,#080808 60%);border:1px solid #32202b;padding:clamp(25px,5vw,55px);margin-top:25px}.feature h3{font-size:clamp(30px,5vw,52px);margin:0 0 12px;text-transform:uppercase}.feature p{color:var(--muted);line-height:1.7;max-width:650px}.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}.contact-row{padding:18px 0;border-bottom:1px solid var(--line)}.contact-row small{display:block;color:var(--pink);font-weight:900;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}.contact-row a,.contact-row span{font-size:18px;text-decoration:none;overflow-wrap:anywhere}.contact-row a:hover{color:var(--green)}.contact-panel{background:var(--panel);padding:25px;border:1px solid var(--line)}.contact-panel h3{font-size:24px;margin-top:0}.contact-panel p{color:var(--muted);line-height:1.7}.contact-panel .btn{width:100%;margin-top:10px}
+    footer{padding:28px 0;border-top:1px solid var(--line);color:#888;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.age{color:var(--pink);font-weight:900}
+    @media(max-width:760px){.nav{padding:14px 0;align-items:flex-start;flex-direction:column;gap:13px}.navlinks{width:100%;gap:15px;overflow-x:auto;padding-bottom:4px}.navlinks a{white-space:nowrap;font-size:11px}.navlinks .nav-cta{padding:10px}.hero{padding-top:16px}.hero-image{max-height:640px}.hero h1{letter-spacing:-1.5px}.about-grid,.contacts-grid{grid-template-columns:1fr}.about-image{max-height:420px}.cards{gap:12px}.card-copy{padding:13px}.card-copy h3{font-size:17px}.card-copy p{font-size:13px}.info-list{gap:8px}.info-item{padding:13px}section{padding:52px 0}}
+    @media(max-width:420px){.wrap{width:calc(100% - 24px)}.cards{grid-template-columns:1fr}.photo-card img{aspect-ratio:4/5}.navlinks{gap:12px}.navlinks a{font-size:10px}.hero p{font-size:15px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#home" aria-label="РОКС БАР — главная">РОКС<span>БАР · АДЛЕР</span></a>
+      <nav class="navlinks" aria-label="Главное меню">
+        <a href="#about">О баре</a><a href="#menu">Барная карта</a><a href="#events">Афиша</a><a href="#contacts">Контакты</a>
+        <a class="nav-cta" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Связаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" style="border-top:0">
+      <div class="wrap">
+        <img class="hero-image" src="rocks-poster.jpg" alt="Афиша РОКС БАР Адлер" fetchpriority="high">
+        <div class="hero-copy">
+          <div class="eyebrow">Сочи · Адлер · РК Мандарин</div>
+          <h1>РОКС БАР <span>| АДЛЕР</span></h1>
+          <p>Музыка, люди, коктейли и ночи, которые хочется запомнить. Встречаемся в «Мандарине».</p>
+          <div class="buttons"><a class="btn" href="tel:+79289057676">Позвонить · забронировать</a><a class="btn secondary" href="#events">Смотреть афишу</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div>
+          <div class="section-kicker">Знакомься, это РОКС</div>
+          <h2 class="section-title">ТВОЯ НОЧЬ.<br><span class="pink">ТВОИ ЛЮДИ.</span></h2>
+          <p class="section-intro">РОКС БАР — место для встреч, музыки и ночной атмосферы в самом Адлере. Заглядывай с друзьями, следи за афишей и уточняй детали вечера у команды бара.</p>
+          <div class="info-list">
+            <div class="info-item"><strong>ЛОКАЦИЯ</strong><span>РК «Мандарин», 2 этаж</span></div>
+            <div class="info-item"><strong>КОГДА</strong><span>Ежедневно с 21:00</span></div>
+            <div class="info-item"><strong>ВОЗРАСТ</strong><span>18+</span></div>
+            <div class="info-item"><strong>НА СВЯЗИ</strong><span>Телефон и Telegram</span></div>
+          </div>
+        </div>
+        <img class="about-image" src="rocks-team.jpg" alt="Команда РОКС БАР">
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="wrap">
+        <div class="section-kicker">Барная карта</div>
+        <h2 class="section-title">ЧТО-ТО <span class="pink">ВКУСНОЕ</span></h2>
+        <p class="section-intro">Знакомься с атмосферой бара. Актуальный состав барной карты и цены лучше уточнить у команды — здесь не публикуем неподтверждённые позиции.</p>
+        <div class="cards">
+          <article class="photo-card">
+            <img src="rocks-cocktail.jpg" alt="Коктейль в РОКС БАР" loading="lazy">
+            <div class="card-copy"><h3>Коктейльное настроение</h3><p>Посмотри актуальные предложения и уточни наличие у команды бара.</p><a class="text-link" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Спросить в Telegram ↗</a></div>
+          </article>
+          <article class="photo-card poster-card">
+            <img src="rocks-poster.jpg" alt="Афиша и настроение РОКС БАР" loading="lazy">
+            <div class="card-copy"><h3>Вечер начинается здесь</h3><p>Следи за обновлениями и специальными предложениями в официальном канале.</p><a class="text-link" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Открыть канал ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="events">
+      <div class="wrap">
+        <div class="section-kicker">Не пропусти</div>
+        <h2 class="section-title">АФИША <span class="pink">И ДВИЖ</span></h2>
+        <div class="cards">
+          <article class="photo-card poster-card"><img src="rocks-poster.jpg" alt="Афиша РОКС БАР" loading="lazy"><div class="card-copy"><h3>Следующая ночь</h3><p>Актуальные даты, артисты и программа публикуются в Telegram. Проверяй канал перед визитом.</p><a class="text-link" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Актуальная афиша ↗</a></div></article>
+          <article class="photo-card"><img src="best-in-the-world.jpg" alt="Самая лучшая в мире" loading="lazy"><div class="card-copy"><h3>САМАЯ ЛУЧШАЯ В МИРЕ <span class="pink">♥</span></h3><p>Особенный кадр в галерее РОКС БАР.</p><a class="text-link" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Рокс бар в Telegram ↗</a></div></article>
+        </div>
+        <div class="feature"><div class="section-kicker">Будь в курсе</div><h3>Увидимся <span class="pink">ночью</span></h3><p>Подпишись на официальный Telegram-канал, чтобы следить за афишей, обновлениями и новостями бара.</p><a class="btn" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Перейти в Telegram</a></div>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <div class="wrap contacts-grid">
+        <div>
+          <div class="section-kicker">Найди нас</div>
+          <h2 class="section-title">ДО ВСТРЕЧИ <span class="pink">В РОКСЕ</span></h2>
+          <p class="section-intro">Сохрани контакты и напиши или позвони, чтобы уточнить бронь и детали посещения.</p>
+          <div class="contact-row"><small>Адрес</small><span>Сочи, Адлер, ул. Бестужева, 1/1, РК «Мандарин», 2 этаж</span></div>
+          <div class="contact-row"><small>Телефон / WhatsApp</small><a href="tel:+79289057676">+7 928 905-76-76</a></div>
+          <div class="contact-row"><small>Время работы</small><span>Ежедневно с 21:00</span></div>
+          <div class="contact-row"><small>Официальный Telegram</small><a href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">@ontherocksbar_adler ↗</a></div>
+        </div>
+        <aside class="contact-panel"><h3>ПЛАНИРУЕШЬ ЗАЙТИ?</h3><p>Свяжись с командой, чтобы уточнить наличие мест, актуальную афишу и детали бронирования.</p><a class="btn" href="tel:+79289057676">Позвонить в бар</a><a class="btn secondary" href="https://wa.me/79289057676" target="_blank" rel="noopener">Написать в WhatsApp</a><a class="btn secondary" href="https://t.me/ontherocksbar_adler" target="_blank" rel="noopener">Открыть Telegram</a><p class="age">18+ · Пожалуйста, отдыхай ответственно.</p></aside>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><span>© <span id="year">2026</span> РОКС БАР | АДЛЕР</span><span>Сочи · Адлер · РК «Мандарин»</span><span class="age">18+</span></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
